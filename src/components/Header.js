@@ -4,7 +4,7 @@ import moon from "../images/icon-moon.svg";
 
 const Header = () => {
   return (
-    <div className="app-header">
+    <div className="app-header col-md-5 mx-auto">
       <h1 className="header-title">TODO</h1>
 
       <img className="toggle-light" src={moon} alt="" />

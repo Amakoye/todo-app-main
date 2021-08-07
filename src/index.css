@@ -3,7 +3,7 @@
 body {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   height: 100vh;
   font-family: Josefin sans;
   font-size: 18px;
@@ -19,7 +19,7 @@ body {
   display: flex;
   flex-direction: row;
   padding: 10px 0 0 0;
-  width: 500px;
+  /*   width: 500px; */
 }
 
 .app-header .header-title {
@@ -34,7 +34,7 @@ body {
 }
 
 .form input {
-  padding: 25px 20px 25px 20px;
+  padding: 12px 20px 10px 20px;
   outline: none;
   border: none;
   box-shadow: none;
@@ -51,9 +51,6 @@ body {
 }
 
 .todo-item {
-  /* display: flex;
-  flex-direction: row;
-  justify-items: center; */
   border-bottom: 1px solid hsl(236, 9%, 61%);
   padding-top: 10px;
 }

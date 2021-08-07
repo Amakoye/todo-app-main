@@ -1,4 +1,4 @@
-export const todos = [
+export const stateData = [
   { title: "Complete online Javascript Course", isComplete: true },
   { title: "Jog around the park 3x", isComplete: false },
   { title: "10 minutes meditation", isComplete: false },
