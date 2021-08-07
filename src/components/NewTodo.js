@@ -2,7 +2,7 @@ import React from "react";
 
 const NewTodo = () => {
   return (
-    <div className="col-md-5 mx-auto">
+    <div className="col-md-6 mx-auto">
       <form className="form new-todo ">
         <input
           type="text"

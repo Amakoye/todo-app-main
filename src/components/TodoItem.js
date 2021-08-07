@@ -16,7 +16,7 @@ const TodoItem = ({ todo }) => {
             <div className="col-9 todo-content">
               <p>{title}</p>
             </div>
-            <div className=" col-1 todo-delete mt-1 ml-4">
+            <div className=" col-1 todo-delete mt-1">
               <i className="fas fa-trash-alt text-danger"></i>
             </div>
           </div>
@@ -24,7 +24,7 @@ const TodoItem = ({ todo }) => {
       ) : (
         <div className="todo-item container">
           <div className="row">
-            <div className="col-1 ml-2 border">
+            <div className="col-1 ml-2">
               <div className="todo-icon-unchecked ">
                 <i className="far fa-circle fa-1x"></i>
               </div>
@@ -33,7 +33,7 @@ const TodoItem = ({ todo }) => {
             <div className="col-9 todo-content">
               <p>{title}</p>
             </div>
-            <div className=" col-1 todo-delete mt-1 ml-4">
+            <div className=" col-1 todo-delete mt-1">
               <i className="fas fa-trash-alt text-danger"></i>
             </div>
           </div>
