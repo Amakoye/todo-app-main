@@ -1,4 +1,5 @@
 import React from "react";
+import TodoFilters from "./TodoFilters";
 import TodoItem from "./TodoItem";
 
 const Todos = ({ todos }) => {
@@ -7,6 +8,7 @@ const Todos = ({ todos }) => {
       {todos.map((todoItem) => {
         return <TodoItem key={todoItem.title} todo={todoItem} />;
       })}
+      <TodoFilters />
     </div>
   ) : (
     <div className="card text-danger mt-5 p-3">
