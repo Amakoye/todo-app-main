@@ -13,8 +13,10 @@ const App = () => {
     todos: [],
     toggleLight: false,
   };
+
   const [state, dispatch] = useReducer(todosReducer, defaultState);
   const [todos, setTodos] = useState(stateData);
+
   return (
     <TodosContext.Provider>
       <div className="App container">

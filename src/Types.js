@@ -1,0 +1,9 @@
+export const ADD_TODO = "ADD_TODO";
+export const DELETE_TODO = "DELETE_TODO";
+export const TOGGLE_TODO = "TOGGLE_TODO";
+export const GET_TODOS = "GET_TODOS";
+export const GET_ACTIVE = "GET_ACTIVE";
+export const GET_COMPLETE = "GET_COMPLETE";
+export const GET_ALL = "GET_ALL";
+export const CLEAR_COMPLETE = "CLEAR_COMPLETE";
+export const TOGGLE_LIGHT = "TOGGLE_LIGHT";
