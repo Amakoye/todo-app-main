@@ -2,10 +2,11 @@ import React from "react";
 import icon_check from "../images/icon-check.svg";
 
 const TodoItem = ({ todo }) => {
-  const { title, isComplete } = todo;
+  /*  const { title, isComplete } = todo;
+  console.log({ title }); */
   return (
     <div className="card-content">
-      {isComplete ? (
+      {todo.isComplete ? (
         <div className="todo-item container">
           <div className="row">
             <div className="col-1 mt-1 ml-2">
@@ -14,7 +15,7 @@ const TodoItem = ({ todo }) => {
               </div>
             </div>
             <div className="col-9 todo-content">
-              <p>{title}</p>
+              <p>{todo.title}</p>
             </div>
             <div className=" col-1 todo-delete mt-1">
               <i className="fas fa-trash-alt text-danger"></i>
@@ -31,7 +32,7 @@ const TodoItem = ({ todo }) => {
             </div>
 
             <div className="col-9 todo-content">
-              <p>{title}</p>
+              <p>{todo.title}</p>
             </div>
             <div className=" col-1 todo-delete mt-1">
               <i className="fas fa-trash-alt text-danger"></i>
