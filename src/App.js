@@ -4,7 +4,7 @@ import Header from "./components/Header";
 import NewTodo from "./components/NewTodo";
 import Todos from "./components/Todos";
 import { todosReducer } from "./reducer/todosReducer";
-import { ADD_TODO, GET_ALL } from "./Types";
+import { ADD_TODO, GET_ALL, DELETE_TODO } from "./Types";
 
 export const TodosContext = React.createContext();
 
@@ -47,8 +47,15 @@ const App = () => {
     addTodo();
   };
 
+  // delete todo
+  const deleteTodo = (id) => {
+    dispatch({ type: DELETE_TODO, payload: id });
+  };
+
   return (
-    <TodosContext.Provider value={{ getAll, handleSubmit, setTodoTitle }}>
+    <TodosContext.Provider
+      value={{ getAll, handleSubmit, setTodoTitle, deleteTodo }}
+    >
       <div className="App container">
         <Header />
         <NewTodo todoTitle={todoTitle} />

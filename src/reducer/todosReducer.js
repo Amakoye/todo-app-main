@@ -1,4 +1,4 @@
-import { GET_ALL, ADD_TODO } from "../Types";
+import { GET_ALL, ADD_TODO, DELETE_TODO } from "../Types";
 export const todosReducer = (state, action) => {
   switch (action.type) {
     case ADD_TODO:
@@ -22,6 +22,15 @@ export const todosReducer = (state, action) => {
       } else {
         return state;
       }
+
+    case DELETE_TODO:
+      let allTodos = JSON.parse(localStorage.getItem("todos"));
+      let currentTodos = allTodos.filter((todo) => todo.id !== action.payload);
+      localStorage.setItem("todos", JSON.stringify(currentTodos));
+      return {
+        ...state,
+        todos: JSON.parse(localStorage.getItem("todos")),
+      };
 
     default:
       console.log("default state");

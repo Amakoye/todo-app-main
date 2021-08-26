@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import icon_check from "../images/icon-check.svg";
+import { TodosContext } from "../App";
 
 const TodoItem = ({ todo }) => {
-  /*  const { title, isComplete } = todo;
-  console.log({ title }); */
+  const { id, title, isComplete } = todo;
+  const { deleteTodo } = useContext(TodosContext);
   return (
     <div className="card-content">
-      {todo.isComplete ? (
+      {isComplete ? (
         <div className="todo-item container">
           <div className="row">
             <div className="col-1 mt-1 ml-2">
@@ -15,10 +16,13 @@ const TodoItem = ({ todo }) => {
               </div>
             </div>
             <div className="col-9 todo-content">
-              <p>{todo.title}</p>
+              <p>{title}</p>
             </div>
             <div className=" col-1 todo-delete mt-1">
-              <i className="fas fa-trash-alt text-danger"></i>
+              <i
+                className="fas fa-trash-alt text-danger"
+                onClick={() => deleteTodo(id)}
+              ></i>
             </div>
           </div>
         </div>
@@ -32,10 +36,13 @@ const TodoItem = ({ todo }) => {
             </div>
 
             <div className="col-9 todo-content">
-              <p>{todo.title}</p>
+              <p>{title}</p>
             </div>
             <div className=" col-1 todo-delete mt-1">
-              <i className="fas fa-trash-alt text-danger"></i>
+              <i
+                className="fas fa-trash-alt text-danger"
+                onClick={() => deleteTodo(id)}
+              ></i>
             </div>
           </div>
         </div>
