@@ -1,4 +1,12 @@
-import { GET_ALL, ADD_TODO, DELETE_TODO, TOGGLE_TODO } from "../Types";
+import {
+  GET_ALL,
+  ADD_TODO,
+  DELETE_TODO,
+  TOGGLE_TODO,
+  GET_ACTIVE,
+  GET_COMPLETE,
+  CLEAR_COMPLETE,
+} from "../Types";
 export const todosReducer = (state, action) => {
   switch (action.type) {
     case ADD_TODO:
@@ -24,8 +32,9 @@ export const todosReducer = (state, action) => {
       }
 
     case DELETE_TODO:
-      let allTodos = JSON.parse(localStorage.getItem("todos"));
-      let currentTodos = allTodos.filter((todo) => todo.id !== action.payload);
+      let currentTodos = JSON.parse(localStorage.getItem("todos")).filter(
+        (todo) => todo.id !== action.payload
+      );
       localStorage.setItem("todos", JSON.stringify(currentTodos));
       return {
         ...state,
@@ -46,8 +55,10 @@ export const todosReducer = (state, action) => {
         localStorage.getItem("todos")
       ).filter((todo) => todo.id !== action.payload);
 
-      if (todosBeforeToggle.length) {
-        const todosAfterToggle = [todosBeforeToggle, toggledTodo];
+      if (todosBeforeToggle.length > 0) {
+        const todosAfterToggle = [...todosBeforeToggle, toggledTodo];
+
+        console.log(todosAfterToggle);
 
         localStorage.setItem("todos", JSON.stringify(todosAfterToggle));
       } else {
@@ -55,11 +66,53 @@ export const todosReducer = (state, action) => {
 
         localStorage.setItem("todos", JSON.stringify(todosAfterToggle));
       }
-
       return {
         ...state,
         todos: JSON.parse(localStorage.getItem("todos")),
       };
+
+    case GET_ACTIVE:
+      const activeTodos = JSON.parse(localStorage.getItem("todos")).filter(
+        (todo) => todo.isComplete !== true
+      );
+      if (activeTodos) {
+        return {
+          ...state,
+          todos: activeTodos,
+        };
+      } else {
+        return state;
+      }
+
+    case GET_COMPLETE:
+      const completeTodos = JSON.parse(localStorage.getItem("todos")).filter(
+        (todo) => todo.isComplete === true
+      );
+      if (completeTodos) {
+        return {
+          ...state,
+          todos: completeTodos,
+        };
+      } else {
+        return state;
+      }
+
+    case CLEAR_COMPLETE:
+      let incompleteTodos = JSON.parse(localStorage.getItem("todos")).filter(
+        (todo) => todo.isComplete === false
+      );
+      if (incompleteTodos) {
+        localStorage.setItem("todos", JSON.stringify(incompleteTodos));
+      }
+
+      if (localStorage.getItem("todos") !== null) {
+        return {
+          ...state,
+          todos: JSON.parse(localStorage.getItem("todos")),
+        };
+      } else {
+        return state;
+      }
 
     default:
       return state;

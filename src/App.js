@@ -4,7 +4,15 @@ import Header from "./components/Header";
 import NewTodo from "./components/NewTodo";
 import Todos from "./components/Todos";
 import { todosReducer } from "./reducer/todosReducer";
-import { ADD_TODO, GET_ALL, DELETE_TODO, TOGGLE_TODO } from "./Types";
+import {
+  ADD_TODO,
+  GET_ALL,
+  DELETE_TODO,
+  TOGGLE_TODO,
+  GET_ACTIVE,
+  GET_COMPLETE,
+  CLEAR_COMPLETE,
+} from "./Types";
 
 export const TodosContext = React.createContext();
 
@@ -57,9 +65,33 @@ const App = () => {
     dispatch({ type: TOGGLE_TODO, payload: id });
   };
 
+  // const get active todos
+  const getActive = () => {
+    dispatch({ type: GET_ACTIVE });
+  };
+
+  // const get active todos
+  const getComplete = () => {
+    dispatch({ type: GET_COMPLETE });
+  };
+
+  // clear complete todos
+  const clearComplete = () => {
+    dispatch({ type: CLEAR_COMPLETE });
+  };
+
   return (
     <TodosContext.Provider
-      value={{ getAll, handleSubmit, setTodoTitle, deleteTodo, toggleTodo }}
+      value={{
+        getAll,
+        handleSubmit,
+        setTodoTitle,
+        deleteTodo,
+        toggleTodo,
+        getActive,
+        getComplete,
+        clearComplete,
+      }}
     >
       <div className="App container">
         <Header />
