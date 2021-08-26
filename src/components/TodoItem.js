@@ -4,7 +4,7 @@ import { TodosContext } from "../App";
 
 const TodoItem = ({ todo }) => {
   const { id, title, isComplete } = todo;
-  const { deleteTodo } = useContext(TodosContext);
+  const { deleteTodo, toggleTodo } = useContext(TodosContext);
   return (
     <div className="card-content">
       {isComplete ? (
@@ -12,7 +12,12 @@ const TodoItem = ({ todo }) => {
           <div className="row">
             <div className="col-1 mt-1 ml-2">
               <div className="todo-icon-check">
-                <img className="icon-check" src={icon_check} alt="" />
+                <img
+                  className="icon-check"
+                  src={icon_check}
+                  alt=""
+                  onClick={() => toggleTodo(id)}
+                />
               </div>
             </div>
             <div className="col-9 todo-content">
@@ -31,7 +36,10 @@ const TodoItem = ({ todo }) => {
           <div className="row">
             <div className="col-1 ml-2">
               <div className="todo-icon-unchecked ">
-                <i className="far fa-circle fa-1x"></i>
+                <i
+                  className="far fa-circle fa-1x"
+                  onClick={() => toggleTodo(id)}
+                ></i>
               </div>
             </div>
 
