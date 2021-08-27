@@ -6,6 +6,7 @@ import {
   GET_ACTIVE,
   GET_COMPLETE,
   CLEAR_COMPLETE,
+  TOGGLE_LIGHT,
 } from "../Types";
 export const todosReducer = (state, action) => {
   switch (action.type) {
@@ -112,6 +113,34 @@ export const todosReducer = (state, action) => {
         };
       } else {
         return state;
+      }
+
+    case TOGGLE_LIGHT:
+      /* console.log({ ...state, toggleLight: !state.toggleLight }); */
+
+      if (localStorage.getItem("isLight") === null) {
+        const istoggleLight = {
+          value: !state.toggleLight,
+        };
+        localStorage.setItem("isLight", JSON.stringify(istoggleLight));
+      } else {
+        const istoggleLight = {
+          value: !JSON.parse(localStorage.getItem("isLight")).value,
+        };
+        localStorage.setItem("isLight", JSON.stringify(istoggleLight));
+      }
+
+      //console.log(JSON.parse(localStorage.getItem("isLight")).value);
+
+      if (localStorage.getItem("isLight") !== null) {
+        return {
+          ...state,
+          toggleLight: JSON.parse(localStorage.getItem("isLight")).value,
+        };
+      } else {
+        return {
+          ...state,
+        };
       }
 
     default:

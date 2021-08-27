@@ -12,10 +12,10 @@ const TodoFilters = () => {
 
   return (
     <div className="card-filters row  a">
-      <div className="col-md-3 text-center mt-2 ">
-        <p className="btn btn-sm">{activeTodos.length}</p>
+      <div className="col-sm-3 col-md-3 text-center mt-2 ">
+        <p className="btn btn-sm">{`${activeTodos.length} items left`}</p>
       </div>
-      <div className="col-md-5 text-center mt-2">
+      <div className="col-sm-5 col-md-5 text-center mt-2">
         <p className="btn btn-sm" onClick={() => getAll()}>
           All
         </p>
@@ -26,7 +26,7 @@ const TodoFilters = () => {
           Completed
         </p>
       </div>
-      <div className="col-md-4 text-center mt-2">
+      <div className="col-sm-4 col-md-4 text-center mt-2">
         <p className="btn btn-sm" onClick={() => clearComplete()}>
           Clear Completed
         </p>
