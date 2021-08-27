@@ -87,3 +87,13 @@ body {
 .card-filter-text-color {
   color: hsl(233, 11%, 84%);
 }
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  font-weight: 350;
+
+  margin-bottom: 10px;
+}

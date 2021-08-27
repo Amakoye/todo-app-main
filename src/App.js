@@ -139,6 +139,11 @@ const App = () => {
         <NewTodo todoTitle={todoTitle} />
         <Todos todos={state.todos} />
       </div>
+      <footer className="footer">
+        <div className="container">
+          <span>react TodoApp, by @AmakoyeCharles 2021</span>
+        </div>
+      </footer>
     </TodosContext.Provider>
   );
 };
